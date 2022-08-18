@@ -1,8 +1,27 @@
 import { Button } from "@mui/material";
+import { client } from "../../libs/client";
 import type { NextPage } from "next";
+import { Blog } from "../../types/blogs";
 
-const Home: NextPage = () => {
+type Props = {
+  blogs: Array<Blog>;
+};
+
+const Home: NextPage<Props> = (props) => {
+  const blogs = props;
+  console.log(blogs);
   return <Button>test</Button>;
+};
+
+export const getStaticProps = async () => {
+  const data = await client.get({ endpoint: "blogs" });
+
+  return {
+    props: {
+      blogs: data.contents,
+    },
+    revalidate: 600,
+  };
 };
 
 export default Home;
