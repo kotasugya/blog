@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { client } from "../../libs/client";
 import type { NextPage } from "next";
 import { Blog } from "../../types/blogs";
@@ -10,7 +10,12 @@ type Props = {
 const Home: NextPage<Props> = (props) => {
   const blogs = props;
   console.log(blogs);
-  return <Button>test</Button>;
+  return (
+    <>
+      <Button>test</Button>
+      <Typography>自動デプロイ完了</Typography>
+    </>
+  );
 };
 
 export const getStaticProps = async () => {
