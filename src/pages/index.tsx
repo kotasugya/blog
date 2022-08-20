@@ -10,7 +10,7 @@ type Props = {
 const Home: NextPage<Props> = (props) => {
   const blogs = props;
   console.log(blogs);
-  return <Button>test</Button>;
+  return <Button variant="contained">test</Button>;
 };
 
 export const getStaticProps = async () => {
